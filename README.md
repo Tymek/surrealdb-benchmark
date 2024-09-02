@@ -9,6 +9,7 @@ Dependencies: `docker`, `bun`, `wget`, `ls`, `wc`.
 ```bash
 make
 docker-compose up -d
+bun install
 bun run packages/postgres/postgres.ts
 bun run packages/surrealdb/surrealdb.ts
 ```
