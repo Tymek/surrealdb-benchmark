@@ -60,4 +60,4 @@ bun run packages/surrealdb/surrealdb.ts
 
 ## Conclusion
 
-I intended to run a more complex test with joins and aggregations, but SurrealDB was not able to handle the dataset size. SurrealDB multi-modal approach to data modelling, different from SQL, is very appealing. It could work well as a small embedded database, but for my use case it lacks built-in conflict resolution needed for offline first applications. I'm curious to see how SurrealDB will evolve in the future. If you find my testing inaccurate or outdated, please raise an issue or a PR. Contributions are welcome.
+I intended to run a more complex test with joins and aggregations, but SurrealDB was not able to handle the dataset size. SurrealDB multi-modal approach to data modelling, different from SQL, is very appealing. I will not be using it as a main database. It could maybe work well as a small embedded database, but for my use case it lacks built-in conflict resolution needed for offline first applications. I'm curious to see how SurrealDB will evolve in the future. If you find my testing inaccurate or outdated, please raise an issue or a PR. Contributions are welcome.
