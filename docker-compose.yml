@@ -1,0 +1,59 @@
+services:
+  # test:
+  #   image: oven/bun:1-alpine
+  #   depends_on:
+  #     - postgres
+  #     - surrealdb
+  #     - mariadb
+  #   volumes:
+  #     - ./:/usr/src/app
+  #   working_dir: /usr/src/app/packages/backend
+  #   environment:
+  #     - POSTGRES_URL=postgres://postgres:postgres@postgres/postgres
+  #     - SURREALDB_URL=http://surrealdb:8000/rpc
+  #     - NODE_ENV=development
+  #   command: ["bun", "run", "index.ts"]
+
+  postgres:
+    ports:
+      - "5432:5432"
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "4096M"
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+
+  # mongodb:
+  #   ports:
+  #     - "27017:27017"
+  #   image: mongo:latest
+  #   environment:
+  #     MONGO_INITDB_DATABASE: "admin"
+  #     MONGO_INITDB_ROOT_USERNAME: "admin"
+  #     MONGO_INITDB_ROOT_PASSWORD: "admin"
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "2"
+  #         memory: "2048M"
+
+  surrealdb:
+    ports:
+      - "8000:8000"
+    image: surrealdb/surrealdb:nightly
+    command: start --log trace --user root --pass root file:/mydata/mydatabase.db
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: "4096M"
+    user: 'root'
+    volumes:
+      - ./volumes/surrealdb:/mydata

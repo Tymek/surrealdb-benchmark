@@ -1,0 +1,15 @@
+{
+	"name": "@im-db-benchmark/postgres",
+	"module": "postgres.ts",
+	"type": "module",
+	"dependencies": {
+		"@im-db-benchmark/common": "*",
+		"postgres": "^3.4.4"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	}
+}
